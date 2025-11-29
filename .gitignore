@@ -1,0 +1,54 @@
+# Entorno virtual de Python
+venv/
+env/
+ENV/
+.venv
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Variables de entorno (NUNCA subir credenciales)
+.env
+.env.local
+.env.production
+
+# Archivos de claves AWS (CRÍTICO - NUNCA SUBIR)
+*.pem
+*.ppk
+*.key
+credentials.txt
+config.txt
+
+# Base de datos local
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+temp/
+tmp/
+
+# Distribución
+build/
+dist/
+*.egg-info/
