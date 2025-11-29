@@ -1,197 +1,102 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leads Tracker - Sistema de Gestión de Contactos</title>
-    <link href="./css/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+{% block title %}Registro de Leads - Leads Tracker{% endblock %}
 
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+{% endblock %}
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <i class="fas fa-users-cog text-indigo-600 text-2xl mr-3"></i>
-                    <span class="text-xl font-bold text-gray-800">Leads Tracker</span>
-                </div>
-                <div>
-                    <a href="/leads"
-                        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
-                        Ver Leads <i class="fas fa-list ml-2"></i>
-                    </a>
-                </div>
+{% block content %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6 hero">
+            <h1><i class="fas fa-rocket"></i> Leads Tracker</h1>
+            <p>Gestiona tus clientes potenciales de forma profesional</p>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <div class="text-start">Registro rápido y sencillo</div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-
-            <!-- Left Column - Hero Content -->
-            <div>
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Gestiona tus <span class="text-indigo-600">Clientes Potenciales</span>
-                </h1>
-                <p class="text-xl text-gray-600 mb-6">
-                    Sistema profesional para el registro y seguimiento de leads.
-                    Automatiza tu proceso de captación de clientes y mejora tus conversiones.
-                </p>
-                <div class="flex flex-wrap gap-4 mb-8">
-                    <div class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Registro rápido</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Seguimiento automatizado</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Informes en tiempo real</span>
-                    </div>
-                </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <div class="text-start">Segimiento automatizado</div>
             </div>
-
-            <!-- Right Column - Image -->
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
-                    alt="Equipo de negocios" class="rounded-2xl shadow-2xl">
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
-                    <div class="flex items-center">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-chart-line text-indigo-600 text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500">Tasa de conversión</p>
-                            <p class="text-2xl font-bold text-gray-900">+45%</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <div class="text-start">Informes en tiempo real</div>
             </div>
         </div>
 
-        <!-- Registration Form Section -->
-        <div class="mt-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-900 mb-3">
-                    Registra un Nuevo Lead
-                </h2>
-                <p class="text-gray-600">
-                    Completa el formulario y comienza a hacer seguimiento inmediatamente
-                </p>
-            </div>
-
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-xl p-8">
-
-                    <!-- Alert Messages -->
-                    <div id="alertContainer"></div>
-
-                    <form id="leadForm" class="space-y-6">
-
-                        <!-- Nombre Completo -->
-                        <div>
-                            <label for="nombre_completo" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-user mr-2 text-indigo-600"></i>Nombre Completo
-                            </label>
-                            <input type="text" id="nombre_completo" name="nombre_completo" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                                placeholder="Juan Pérez García">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-user-plus"></i> Registra un Nuevo Lead</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form id="leadForm">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre_completo" required>
                         </div>
 
-                        <!-- Correo Electrónico -->
-                        <div>
-                            <label for="correo_electronico" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-envelope mr-2 text-indigo-600"></i>Correo Electrónico
-                            </label>
-                            <input type="email" id="correo_electronico" name="correo_electronico" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                                placeholder="juan@ejemplo.com">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="correo_electronico" required>
                         </div>
 
-                        <!-- Teléfono -->
-                        <div>
-                            <label for="telefono" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-phone mr-2 text-indigo-600"></i>Teléfono
-                            </label>
-                            <input type="tel" id="telefono" name="telefono" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                                placeholder="+51 999 888 777">
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono" required>
                         </div>
 
-                        <!-- Interés/Servicio -->
-                        <div>
-                            <label for="interes" class="block text-sm font-semibold text-gray-700 mb-2">
-                                <i class="fas fa-briefcase mr-2 text-indigo-600"></i>Interés/Servicio Solicitado
-                            </label>
-                            <select id="interes" name="interes" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                        <div class="mb-3">
+                            <label for="interes" class="form-label">¿Cuál es tu área de interés?</label>
+                            <select class="form-select" id="interes" name="interes" required>
                                 <option value="">Selecciona una opción</option>
-                                <option value="Consultoría Tecnológica">Consultoría Tecnológica</option>
-                                <option value="Desarrollo Web">Desarrollo Web</option>
-                                <option value="Desarrollo Móvil">Desarrollo Móvil</option>
-                                <option value="Cloud Computing">Cloud Computing (AWS/Azure)</option>
-                                <option value="Transformación Digital">Transformación Digital</option>
-                                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
-                                <option value="Ciberseguridad">Ciberseguridad</option>
+                                <option value="Servicios">Servicios</option>
+                                <option value="Productos">Productos</option>
+                                <option value="Consultoría">Consultoría</option>
                                 <option value="Otro">Otro</option>
                             </select>
                         </div>
 
-                        <!-- Submit Button -->
-                        <div class="pt-4">
-                            <button type="submit" id="submitBtn"
-                                class="w-full bg-indigo-600 text-white font-semibold py-4 px-6 rounded-lg hover:bg-indigo-700 transition transform hover:scale-105 shadow-lg">
-                                <i class="fas fa-paper-plane mr-2"></i>
-                                <span id="btnText">Registrar Lead</span>
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-save"></i> Registrar Lead
+                        </button>
                     </form>
+                    <div id="mensaje" class="alert mt-3" style="display:none;"></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Features Section -->
-        <div class="mt-20 grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-xl shadow-lg">
-                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-bolt text-blue-600 text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Rápido y Eficiente</h3>
-                <p class="text-gray-600">Registra leads en segundos con nuestro formulario optimizado.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg">
-                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-shield-alt text-green-600 text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Seguro y Confiable</h3>
-                <p class="text-gray-600">Tus datos están protegidos con los más altos estándares de seguridad.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg">
-                <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Analytics Integrado</h3>
-                <p class="text-gray-600">Analiza y mejora tu proceso de captación con métricas en tiempo real.</p>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-20 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2024 Leads Tracker. Sistema de Gestión de Contactos Profesional.</p>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    <h5 class="card-title mt-3">Gestión Simple</h5>
+                    <p class="card-text">Administra todos tus leads en un solo lugar</p>
+                </div>
+            </div>
         </div>
-    </footer>
-
-    <!-- JavaScript externo -->
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-</body>
-
-</html>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-bar" style="font-size: 2.5rem; color: var(--secondary);"></i>
+                    <h5 class="card-title mt-3">Análisis Completo</h5>
+                    <p class="card-text">Visualiza el estado de tus leads</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-lock" style="font-size: 2.5rem; color: var(--success);"></i>
+                    <h5 class="card-title mt-3">Seguro y Confiable</h5>
+                    <p class="card-text">Tus datos están protegidos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
